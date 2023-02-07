@@ -37,7 +37,7 @@ const Chat = () => {
             const decryptedMessage = decryptMessages(msg.text)
             const actualMessage = {text: decryptedMessage, user: msg.user, sent: msg.sent}
             setMessages(messages => [...messages, actualMessage])
-            axios.get(`https://downpourchatserver.onrender.com/chats/${room}`, {crossdomain: true}).then(res => {
+            axios.get(`https://downpour-chat-production.up.railway.app/chats/${room}`, {crossdomain: true}).then(res => {
                 setData(res.data[0])
             }).catch(err => console.log(err)) 
         })
@@ -56,7 +56,7 @@ const Chat = () => {
 
     // Fetch messages from backend /chats/room route
     useEffect(() => {
-        axios.get(`https://downpourchatserver.onrender.com/chats/${room}`, {crossdomain: true}).then(res => {
+        axios.get(`https://downpour-chat-production.up.railway.app/chats/${room}`, {crossdomain: true}).then(res => {
             setData(res.data[0])
         }).catch(err => console.log(err)) 
     // eslint-disable-next-line
